@@ -97,6 +97,7 @@ class ARModel {
 		hopper.transform.translation.y += 8
 		hopper.position.y = 7
 		hopper.playAnimation(animator.getAnimationByName(name: "fly"), transitionDuration: 0, blendLayerOffset: 0, separateAnimatedValue: false, startsPaused: false)
+		
 		let fc = FlyingMotionControl(entity: hopper, arView: arView)
 		let lc = LandedMotionControl(entity: hopper, arView: arView)
 		hopper.components.set(

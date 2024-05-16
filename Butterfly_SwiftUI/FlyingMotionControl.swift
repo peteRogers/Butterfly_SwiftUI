@@ -129,13 +129,14 @@ class FlyingMotionControl{
 	
 	func doTakeOff(){
 		if var mc:MotionComponent = entity.components[MotionComponent.self]{
-			mc.setAnimation(animation: mc.animator.setAnimation(entity: entity, name: "takeOff", trans: 0.1))
+			mc.setAnimation(animation: mc.animator.setAnimation(entity: entity, name: "takeOff", trans: 0.2))
+			mc.animation?.speed = 1.5
 			mc.setState(state: .flyingUp)
 			self.entity.components[MotionComponent.self] = mc
 			arView.scene.subscribe(to: AnimationEvents.PlaybackCompleted.self, on: entity) {event in
 				if event.playbackController == mc.animation {
-					mc.setAnimation(animation: mc.animator.setAnimation(entity: self.entity, name: "fly", trans: 0.3))
-					mc.animation?.speed = 1.0
+					mc.setAnimation(animation: mc.animator.setAnimation(entity: self.entity, name: "fly", trans: 0.2))
+					mc.animation?.speed = 1.8
 					//mc.setState(state: .flyingUp)
 					self.entity.components[MotionComponent.self] = mc
 				}

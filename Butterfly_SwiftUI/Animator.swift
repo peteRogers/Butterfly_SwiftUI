@@ -17,7 +17,7 @@ final class Animator{
             fatalError("no fly")
         }
 		
-        animations.append(Animation(skel: fly.availableAnimations.first!.repeat(), name: "fly"))
+		animations.append(Animation(skel: fly.availableAnimations.first!.repeat(), name: "fly"))
 		
         guard let land = try? Entity.load(named: "bxLanding")else{
             fatalError("no land")

@@ -34,6 +34,7 @@ class LandedMotionControl{
 		if var mc:MotionComponent = entity.components[MotionComponent.self]{
 			mc.setState(state: .landed)
 			mc.setAnimation(animation: mc.animator.setAnimation(entity: entity, name: "land", trans: 0.1))
+			mc.animation?.speed = 2.0
 			self.entity.components[MotionComponent.self] = mc
 			arView.scene.subscribe(to: AnimationEvents.PlaybackCompleted.self, on: entity) {event in
 				if event.playbackController == mc.animation {
